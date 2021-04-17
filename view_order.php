@@ -15,11 +15,10 @@ if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$stmt = $con->prepare('SELECT orders.id,meds.name,orders.quantity,orders.price FROM orders LEFT JOIN meds ON orders.product_id = meds.id AND orders.user_id = ?');
+$stmt = $con->prepare('SELECT o.id,m.name,o.quantity,o.price FROM orders AS o LEFT JOIN meds AS m ON o.product_id = m.id AND o.user_id = ?');
 $stmt->bind_param('i',$_SESSION['id']);
 $stmt->execute();
-$stmt->bind_result($id, $name, $quantity, $price);
-$stmt->fetch();
+$result = $stmt->get_result();
 $stmt->close();
 ?>
 
@@ -42,12 +41,21 @@ $stmt->close();
                 <th>Quantity</th>
                 <th>Price(Rs.)</th>
             </tr>
+            <?php   // LOOP TILL END OF DATA 
+                while($rows=$result->fetch_assoc())
+                {
+             ?>
             <tr>
-                <td><?=$id?></td>
-                <td><?=$name?></td>
-                <td><?=$quantity?></td>
-                <td><?=$price?></td>
+                <!--FETCHING DATA FROM EACH 
+                    ROW OF EVERY COLUMN-->
+                <td><?php echo $rows['id'];?></td>
+                <td><?php echo $rows['name'];?></td>
+                <td><?php echo $rows['quantity'];?></td>
+                <td><?php echo $rows['price'];?></td>
             </tr>
+            <?php
+                }
+             ?>
         </table>
     </section>
 </body>
