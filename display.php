@@ -2,29 +2,24 @@
   
 $user = 'root';
 $password = '12345'; 
-  
-// Database name is gfg
-$database = 'login'; 
-  
-// Server is localhost with
-// port number 3308
+$database = 'medical'; 
 $servername='localhost';
+
 $mysqli = new mysqli($servername, $user, 
                 $password, $database);
   
-// Checking for connections
 if ($mysqli->connect_error) {
     die('Connect Error (' . 
     $mysqli->connect_errno . ') '. 
     $mysqli->connect_error);
 }
   
-// SQL query to select data from database
 $sql = "SELECT * FROM meds ORDER BY id DESC ";
 $result = $mysqli->query($sql);
 $mysqli->close(); 
 ?>
-// HTML code to display data in tabular format
+
+
 <!DOCTYPE html>
 <html lang="en">
   
