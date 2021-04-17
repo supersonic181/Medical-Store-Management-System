@@ -14,7 +14,7 @@ if ( !isset($_POST['username'], $_POST['password']) ){
     exit('Please fill both the username and password fields!');
 }
 
-if ($stmt = $con->prepare('SELECT id,password FROM admin WHERE username=?')) {
+if ($stmt = $con->prepare('SELECT id,password FROM admins WHERE username=?')) {
     $stmt->bind_param('s',$_POST['username']);
     $stmt->execute();
     $stmt->store_result();

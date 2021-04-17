@@ -16,7 +16,7 @@ if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$stmt = $con->prepare('SELECT password,emailid FROM admin WHERE id = ?');
+$stmt = $con->prepare('SELECT password,emailid FROM admins WHERE id = ?');
 $stmt->bind_param('i',$_SESSION['id']);
 $stmt->execute();
 $stmt->bind_result($password, $email);
