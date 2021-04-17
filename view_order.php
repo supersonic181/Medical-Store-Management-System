@@ -34,6 +34,7 @@ $stmt->close();
 <body>
     <section>
         <h1>Order Details</h1>
+        <a href="home.php">Home</a>
         <table>
             <tr>
                 <th>Id</th>

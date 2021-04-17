@@ -17,7 +17,6 @@ $stmt = $con->prepare('INSERT INTO customers(username,password,email) VALUES(?,?
 if ($stmt) {
     $stmt->bind_param('sss',$_POST['username'],$_POST['password'],$_POST['emailid']);
     $stmt->execute();
-    echo "ye line tho sahi hai 5";
     if($stmt->affected_rows > 0) {
         echo "Registration Successful";
         header('Location: index.html'); 

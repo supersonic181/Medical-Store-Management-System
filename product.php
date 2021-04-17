@@ -31,10 +31,21 @@ $mysqli->close();
 <body>
     <section>
         <h1>Meds Details</h1>
-        <!-- TABLE CONSTRUCTION-->
+        <a href="home.php">Home</a>
+        <form action="place_order.php" method="POST">
+            <br><br>
+            <label for="product_id_input">Product Id: </label>
+            <input type="number" name="product_id" id="product_id_input" required>
+            <br>
+            <label for="quantity_input">Quantity: </label>
+            <input type="number" name="quantity" id="quantity_input" required>
+            <br><br>
+            <button type="submit">Place Order</button>
+        </form>
+        <br>
         <table>
             <tr>
-                <th>SlNO</th>
+                <th>Product Id</th>
                 <th>Name</th>
                 <th>Quantity</th>
                 <th>Price</th>
@@ -55,7 +66,7 @@ $mysqli->close();
             <?php
                 }
              ?>
-        </table>
+        </table> 
     </section>
 </body>
   
