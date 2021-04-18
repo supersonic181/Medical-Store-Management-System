@@ -20,7 +20,7 @@ if(!isset($_SESSION['loggedin'])) {
 				<h1>Admin Panel</h1>
 				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
 				<a href="view_order.php"><i class="fas fa-user-circle"></i>view order</a>
-				<a href="product.php"><i class="fas fa-user-circle"></i>Products</a>
+				<a href="inventory.php"><i class="fas fa-user-circle"></i>Inventory</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
