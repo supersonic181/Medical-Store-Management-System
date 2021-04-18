@@ -23,17 +23,18 @@ if ($stmt = $con->prepare('SELECT * FROM meds WHERE id=?')) {
         exit();
     }
 
+    $product_name = $product['name'];
     $total_price = $_POST['quantity'] * $product['price'];
 }
 
-$stmt = $con->prepare('INSERT INTO orders(user_id,product_id,quantity,price) VALUES(?,?,?,?)');
+$stmt = $con->prepare('INSERT INTO orders(user_id,product_id,product_name,quantity,total_price) VALUES(?,?,?,?,?)');
 if ($stmt) {
-    $stmt->bind_param('iiii',$_SESSION['id'],$_POST['product_id'],$_POST['quantity'],$total_price);
+    $stmt->bind_param('iisii',$_SESSION['id'],$_POST['product_id'],$product_name,$_POST['quantity'],$total_price);
     $stmt->execute();
     if($con->affected_rows === 0){
         echo "Order Unsucceful, Please try again!";
-    }
-    header('Location: view_order.php');
+    }else{
+        header('Location: view_order.php'); }
     $stmt->close();
 } else {
     echo $con->error;

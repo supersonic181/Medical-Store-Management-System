@@ -15,7 +15,7 @@ if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$stmt = $con->prepare('SELECT o.id,m.name,o.quantity,o.price FROM orders AS o LEFT JOIN meds AS m ON o.product_id = m.id WHERE o.user_id = ?');
+$stmt = $con->prepare('SELECT id,product_name,quantity,total_price from orders WHERE user_id = ?');
 $stmt->bind_param('i',$_SESSION['id']);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -50,9 +50,9 @@ $stmt->close();
                 <!--FETCHING DATA FROM EACH 
                     ROW OF EVERY COLUMN-->
                 <td><?php echo $rows['id'];?></td>
-                <td><?php echo $rows['name'];?></td>
+                <td><?php echo $rows['product_name'];?></td>
                 <td><?php echo $rows['quantity'];?></td>
-                <td><?php echo $rows['price'];?></td>
+                <td><?php echo $rows['total_price'];?></td>
             </tr>
             <?php
                 }
