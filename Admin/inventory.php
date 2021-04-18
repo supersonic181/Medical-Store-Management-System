@@ -75,8 +75,8 @@ $mysqli->close();
             <form action="delete_item.php" method="POST">
                 <h3>Delete Item</h3>
                 <br>
-                <label for="quantity_input">Product ID: </label>
-                <input type="number" name="price" id="price_input" required>
+                <label for="product_id">Product ID: </label>
+                <input type="number" name="id" id="product_id" required>
                 <br><br>
                 <button type="submit">Delete Item</button>
             </form>
