@@ -36,7 +36,7 @@ $stmt->close();
 		<nav class="navtop">
 			<div>
 				<h1>Profile</h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
+				<a href="home.php"><i class="fas fa-user-circle"></i>home</a>
 				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
 			</div>
 		</nav>
