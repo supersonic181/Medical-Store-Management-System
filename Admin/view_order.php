@@ -53,9 +53,9 @@ $stmt->close();
                 <td><?php echo $rows['id'];?></td>
                 <td><?php echo $rows['user_id'];?></td>
                 <td><?php echo $rows['product_id'];?></td>
-                <td><?php echo $rows['name'];?></td>
+                <td><?php echo $rows['product_name'];?></td>
                 <td><?php echo $rows['quantity'];?></td>
-                <td><?php echo $rows['price'];?></td>
+                <td><?php echo $rows['total_price'];?></td>
             </tr>
             <?php
                 }
