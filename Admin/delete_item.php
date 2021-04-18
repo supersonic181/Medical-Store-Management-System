@@ -9,7 +9,7 @@ $con = mysqli_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS,$DATABASE_NAM
 if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-$stmt = $con->prepare('DELETE meds WHERE id=?');
+$stmt = $con->prepare('DELETE FROM meds WHERE id=?');
 if ($stmt) {
     $stmt->bind_param('i',$_POST['id']);
     $stmt->execute();
