@@ -15,7 +15,7 @@ if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$stmt = $con->prepare('SELECT o.*,m.name FROM orders AS o LEFT JOIN meds AS m ON o.product_id = m.id');
+$stmt = $con->prepare('SELECT * from orders');
 $stmt->execute();
 $result = $stmt->get_result();
 $stmt->close();
