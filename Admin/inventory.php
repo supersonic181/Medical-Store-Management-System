@@ -26,25 +26,61 @@ $mysqli->close();
 <head>
     <meta charset="UTF-8">
     <title>Meds Details</title>  
+    <style>
+        .Form_Container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
 </head>
   
 <body>
     <section>
         <h1>Meds Details</h1>
         <a href="home.php">Home</a>
-        <form action="add_item.php" method="POST">
-            <br><br>
-            <label for="product_id_input">Product Name: </label>
-            <input type="text" name="product_name" id="product_name_input" required>
-            <br>
-            <label for="quantity_input">Quantity: </label>
-            <input type="number" name="quantity" id="quantity_input" required>
-            <br>
-            <label for="quantity_input">Price: </label>
-            <input type="number" name="price" id="price_input" required>
-            <br><br>
-            <button type="submit">Add Item</button>
-        </form>
+        <div class="Form_Container">
+            <form action="add_item.php" method="POST">
+                <h3>Add Item</h3>
+                <br>
+                <label for="product_name">Product Name: </label>
+                <input type="text" name="product_name" id="product_name_input" required>
+                <br>
+                <label for="quantity_input">Quantity: </label>
+                <input type="number" name="quantity" id="quantity_input" required>
+                <br>
+                <label for="price_input">Price: </label>
+                <input type="number" name="price" id="price_input" required>
+                <br><br>
+                <button type="submit">Add Item</button>
+            </form>
+            <form action="update_item.php" method="POST">
+                <h3>Update Item</h3>
+                <br>
+                <label for="product_id">Product Id: </label>
+                <input type="number" name="id" id="product_id" required>
+                <br>
+                <label for="product_name">Product Name: </label>
+                <input type="text" name="product_name" id="product_name_input" required>
+                <br>
+                <label for="quantity_input">Quantity: </label>
+                <input type="number" name="quantity" id="quantity_input" required>
+                <br>
+                <label for="price_input">Price: </label>
+                <input type="number" name="price" id="price_input" required>
+                <br><br>
+                <button type="submit">Update Item</button>
+            </form>
+            <form action="delete_item.php" method="POST">
+                <h3>Delete Item</h3>
+                <br>
+                <label for="quantity_input">Product ID: </label>
+                <input type="number" name="price" id="price_input" required>
+                <br><br>
+                <button type="submit">Delete Item</button>
+            </form>
+        </div>
         <br>
         <table>
             <tr>
@@ -53,14 +89,11 @@ $mysqli->close();
                 <th>Quantity</th>
                 <th>Price</th>
             </tr>
-            <!-- PHP CODE TO FETCH DATA FROM ROWS-->
             <?php   // LOOP TILL END OF DATA 
                 while($rows=$result->fetch_assoc())
                 {
              ?>
             <tr>
-                <!--FETCHING DATA FROM EACH 
-                    ROW OF EVERY COLUMN-->
                 <td><?php echo $rows['id'];?></td>
                 <td><?php echo $rows['name'];?></td>
                 <td><?php echo $rows['quantity'];?></td>
