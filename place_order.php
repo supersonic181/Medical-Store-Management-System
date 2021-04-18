@@ -9,6 +9,10 @@ $con = mysqli_connect($DATABASE_HOST,$DATABASE_USER,$DATABASE_PASS,$DATABASE_NAM
 if (mysqli_connect_errno() ) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+if($_POST['quantity']<1){
+    echo "Quantity can't be 0 or below!";
+    exit();
+}
 if ($stmt = $con->prepare('SELECT * FROM meds WHERE id=?')) {
     $stmt->bind_param('i',$_POST['product_id']);
     $stmt->execute();
